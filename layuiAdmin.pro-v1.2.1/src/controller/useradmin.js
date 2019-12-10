@@ -18,14 +18,14 @@ layui.define(['table', 'form'], function(exports){
   //用户管理
   table.render({
     elem: '#LAY-user-manage'
-    ,url: './json/useradmin/webuser.js' //模拟接口
+    ,url: 'http://localhost:8090/users' //模拟接口
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field: 'id', width: 100, title: 'ID', sort: true}
       ,{field: 'name', title: '用户名', minWidth: 100}
       ,{field: 'phone', title: '手机'}
       ,{field: 'message', title: '留言'}
-      ,{field: 'jointime', title: '加入时间', sort: true}
+      // ,{field: 'jointime', title: '加入时间', sort: true}
       ,{title: '操作', width: 150, align:'center', fixed: 'right', toolbar: '#table-useradmin-webuser'}
     ]]
     ,page: true
@@ -46,6 +46,8 @@ layui.define(['table', 'form'], function(exports){
         
         layer.confirm('真的删除行么', function(index){
           obj.del();
+          //todo
+
           layer.close(index);
         });
       });
@@ -64,6 +66,7 @@ layui.define(['table', 'form'], function(exports){
 
               //提交 Ajax 成功后，关闭当前弹层并重载表格
               //$.ajax({});
+
               layui.table.reload('LAY-user-manage'); //重载表格
               layer.close(index); //执行关闭 
             });
@@ -76,7 +79,7 @@ layui.define(['table', 'form'], function(exports){
   //管理员管理
   table.render({
     elem: '#LAY-user-back-manage'
-    ,url: './json/useradmin/mangadmin.js' //模拟接口
+    ,url: 'http://localhost:8090/managers' //模拟接口
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field: 'id', width: 80, title: 'ID', sort: true}
@@ -101,6 +104,7 @@ layui.define(['table', 'form'], function(exports){
         layer.confirm('确定删除此管理员？', function(index){
           console.log(obj)
           obj.del();
+
           layer.close(index);
         });
       });
@@ -131,7 +135,7 @@ layui.define(['table', 'form'], function(exports){
   //角色管理
   table.render({
     elem: '#LAY-user-back-role'
-    ,url: './json/useradmin/role.js' //模拟接口
+    ,url: 'http://localhost:8090/roles' //模拟接口
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field: 'id', width: 80, title: 'ID', sort: true}

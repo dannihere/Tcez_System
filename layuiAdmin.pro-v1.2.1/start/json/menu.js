@@ -10,7 +10,7 @@
     }]
   },{
     "name": "app"
-    ,"title": "应用"
+    ,"title": "展示"
     ,"icon": "layui-icon-app"
     ,"list": [{
       "name": "content"
@@ -24,10 +24,10 @@
       }]
     },{
       "name": "forum"
-      ,"title": "社区系统"
+      ,"title": "评论"
       ,"list": [{
         "name": "list"
-        ,"title": "帖子列表"
+        ,"title": "评论列表"
       }]
     }]
   },{
