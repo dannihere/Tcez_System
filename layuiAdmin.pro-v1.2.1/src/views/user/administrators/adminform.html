@@ -9,6 +9,17 @@
       </script>
     </div>
   </div>
+
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">密码</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="password" value="{{ d.params.password || '' }}" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+        <input type="text" name="repassword" value="{{ d.params.repassword || '' }}" lay-verify="required" placeholder="再次输入密码" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
 <!--  <div class="layui-form-item">-->
 <!--    <label class="layui-form-label">手机</label>-->
 <!--    <div class="layui-input-inline">-->

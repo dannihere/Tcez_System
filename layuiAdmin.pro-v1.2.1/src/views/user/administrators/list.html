@@ -142,8 +142,22 @@ layui.use('useradmin', layui.factory('useradmin')).use(['admin', 'useradmin', 't
             //监听提交
             form.on('submit(LAY-user-back-submit)', function(data){
               var field = data.field; //获取提交的字段
-
+              //todo
+              // 密码加密
               //提交 Ajax 成功后，关闭当前弹层并重载表格
+              $.ajax({
+                url: "localhost:8090/manager",
+                dataType: "JSON",
+                data: {
+                  username: field.loginname,
+                  password: field.password,
+                },
+                success: function (msg) {
+                  if(mas.code==1)
+                  alert("添加成功")
+                }
+              })
+
               //$.ajax({});
               layui.table.reload('LAY-user-back-manage'); //重载表格
               layer.close(index); //执行关闭 

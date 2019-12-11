@@ -108,6 +108,19 @@ layui.use('useradmin', layui.factory('useradmin')).use(['admin', 'useradmin', 't
         layer.confirm('确定删除吗？', function(index) {
           
           //执行 Ajax 后重载
+          $.ajax({
+            type: "DELETE",
+            url:"localhost:8090/users",
+            dataType: "JSON",
+            data:{
+              list: checkData
+            },
+            success: function (msg) {
+              if (msg.code===0)
+                layer.msg('已删除');
+            }
+          })
+
           /*
           admin.req({
             url: 'xxx'
@@ -133,8 +146,20 @@ layui.use('useradmin', layui.factory('useradmin')).use(['admin', 'useradmin', 't
               var field = data.field; //获取提交的字段
 
               //提交 Ajax 成功后，关闭当前弹层并重载表格
-
-
+              $.ajax({
+                type: "POST",
+                url:"localhost:8090/user",
+                dataType: "JSON",
+                data:{
+                  name: field.name,
+                  phone: field.phone,
+                  message: field.message
+                },
+                success: function (msg) {
+                  if (msg.code===1)
+                  alert("添加成功");
+                }
+              })
 
               //$.ajax({});
               layui.table.reload('LAY-user-manage'); //重载表格

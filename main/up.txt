@@ -1,0 +1,1 @@
+scp -r dist root@39.107.44.133:/usr/share/nginx/
